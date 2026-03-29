@@ -1,0 +1,231 @@
+.product-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filters-section {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.1), rgba(200, 150, 255, 0.1));
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 2px solid rgba(100, 200, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filters-section h3 {
+  color: #333;
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 16px;
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.3);
+  color: #000;
+}
+
+.btn-search {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Filter Form */
+.filter-form {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.price-inputs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+.price-input {
+  padding: 10px 12px;
+  border: 2px solid rgba(100, 200, 255, 0.3);
+  border-radius: 6px;
+  font-size: 13px;
+  width: 150px;
+  color: #333;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.price-input::placeholder {
+  color: #999;
+}
+
+.price-input:focus {
+  outline: none;
+  border-color: #ff6b9d;
+  box-shadow: 0 0 8px rgba(255, 107, 157, 0.3);
+  color: #000;
+}
+
+.btn-filter {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #ff6b9d, #ff4757);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.btn-filter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+}
+
+/* Reset Button */
+.btn-reset {
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #6c757d, #495057);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.btn-reset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+/* Error Message */
+.filter-error {
+  background: #ffe5e5;
+  border-left: 4px solid #ff4757;
+  color: #dc2f2f;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filters-section {
+    padding: 15px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-input {
+    min-width: 100%;
+  }
+
+  .price-inputs {
+    flex-direction: column;
+  }
+
+  .price-input {
+    width: 100%;
+  }
+
+  .btn-reset {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .btn-search,
+  .btn-filter {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+:root.dark .filters-section {
+  background: linear-gradient(135deg, rgba(100, 200, 255, 0.15), rgba(200, 150, 255, 0.15));
+}
+
+:root.dark .filters-section h3 {
+  color: #e0e0e0;
+}
+
+:root.dark .search-input,
+:root.dark .price-input {
+  background: #2a2a2a;
+  color: #ffffff;
+  border-color: rgba(100, 200, 255, 0.2);
+}
+
+:root.dark .search-input::placeholder,
+:root.dark .price-input::placeholder {
+  color: #888;
+}
+
+:root.dark .input-group label {
+  color: #b0b0b0;
+}
+
+:root.dark .filter-form {
+  background: #1e1e1e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}

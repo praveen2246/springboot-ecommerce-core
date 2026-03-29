@@ -1,0 +1,53 @@
+name: Docker Build
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'ecommerce-backend/**'
+      - 'ecommerce-frontend/**'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - '.github/workflows/docker.yml'
+
+jobs:
+  build-backend-image:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Backend Image
+      uses: docker/build-push-action@v4
+      with:
+        context: ecommerce-backend/ecommerce-backend
+        file: ecommerce-backend/ecommerce-backend/Dockerfile
+        push: false
+        tags: ecommerce-backend:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  build-frontend-image:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Build Frontend Image
+      uses: docker/build-push-action@v4
+      with:
+        context: ecommerce-frontend
+        file: ecommerce-frontend/Dockerfile
+        push: false
+        tags: ecommerce-frontend:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+    - name: Notify Success
+      run: echo "✅ Docker images built successfully!"

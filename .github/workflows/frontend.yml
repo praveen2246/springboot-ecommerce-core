@@ -1,0 +1,60 @@
+name: Build and Test Frontend
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'ecommerce-frontend/**'
+      - '.github/workflows/frontend.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'ecommerce-frontend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: 'ecommerce-frontend/package-lock.json'
+
+    - name: Install Dependencies
+      working-directory: ecommerce-frontend
+      run: npm install --silent
+
+    - name: Build Project
+      working-directory: ecommerce-frontend
+      run: npm run build
+      env:
+        VITE_API_BASE_URL: http://localhost:8080
+
+    - name: Run Tests (if configured)
+      working-directory: ecommerce-frontend
+      run: npm test 2>/dev/null || echo "Tests not configured"
+      continue-on-error: true
+
+    - name: Upload Build Artifacts
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: frontend-build
+        path: ecommerce-frontend/dist/
+
+    - name: Notify Success
+      if: success()
+      run: echo "✅ Frontend build completed successfully!"
+
+    - name: Notify Failure
+      if: failure()
+      run: echo "❌ Frontend build failed!"

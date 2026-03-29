@@ -1,0 +1,133 @@
+.razorpay-payment-form {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 500px;
+  margin: 20px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.razorpay-payment-form h3 {
+  color: #212529;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.info-message {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.payment-summary {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.payment-summary p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #495057;
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-summary strong {
+  color: #212529;
+  font-weight: 600;
+}
+
+.btn-razorpay-pay {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-razorpay-pay:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.btn-razorpay-pay:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-razorpay-pay:active:not(:disabled) {
+  background-color: #004085;
+  transform: translateY(1px);
+}
+
+.debug-info {
+  background-color: #f5f5f5;
+  border: 1px solid #dddde0;
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: #212529;
+}
+
+.debug-info p {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.debug-info pre {
+  margin: 0;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height: 1.4;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .razorpay-payment-form {
+    padding: 16px;
+  }
+
+  .razorpay-payment-form h3 {
+    font-size: 18px;
+  }
+
+  .btn-razorpay-pay {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
